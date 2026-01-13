@@ -24,7 +24,7 @@ public class Validaciones {
                      System.out.println("Por favor, ingrese un número entero positivo.");
                  }else if (numero < min || numero > max) {
                      System.out.println("Por favor, ingrese un número entre " + min + " y " + max + ".");
-                     numero = -1;
+                    //  numero = -1;
                  }
              } catch (NumberFormatException e) {
                  System.out.println("Entrada inválida. Por favor, ingrese un número entero positivo.");
@@ -67,6 +67,12 @@ public static String leerString(String mensaje, int minLength, int maxLength) {
     String regex = "^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+(?:\\s[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ]+)*$";
     
     java.io.Console console = System.console();
+
+    // Si estás ejecutando el programa en una terminal 
+    // (como el CMD de Windows o PowerShell), el Scanner a veces 
+    // falla con caracteres especiales. La clase Console maneja mejor el encoding del sistema:
+
+
     do {
         System.out.print(mensaje);
         texto = (console != null) ? console.readLine().trim() : sc.nextLine().trim();
